@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #3a7bd5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #3a6073, #3a7bd5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #3a6073, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Roboto', sans-serif;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: white;
+}
+
+button {
+  padding: 3px 4px;
+  border: none;
+}
+
+:focus {
+  outline: 3px solid orangered;
+}
+
+
+.todo-container {
+  position: relative;
+  overflow-y: auto;
+  width: 400px;
+  height: calc(100vh - 38px);
+  padding: 12px 24px;
+  margin: 0 auto;
+
+
+  .list__done {
+    background-color: limegreen;
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+  }
+  .list__edit {
+    background-color: steelblue;
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+  }
+  .list__delete {
+    background-color: crimson;
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+  }
+
+
+  
+  input {
+    width: 50%;
+    height: 90%;
+    border: none;
+  }
+
+
+  .list-not-complete {
+    button {
+      width: calc(16.6% - 4px);
+    }
+  }
+  .list-complete {
+    button {
+      width: calc(25% - 4px);
+    }
+  }
+
+  .form {
+    position: relative;
+    margin: 32px 0;
+    display: flex;
+    justify-content: center;
+    .form__input {
+      height: 27px;
+      margin-right: 3px;
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: 200ms;
+  }
+  
+  .list__item {
+    width: 100%;
+    height: 27px;
+    list-style-type: none;
+  }
+
+
+  // #########
+  // Utilities
+  // #########
+
+  .complete {
+    opacity: 0.4;
+    text-decoration-line: line-through;
+  }
+
+  .li-hide-animation {
+    transition: 200ms;
+    transform: scale3d(0, 0, 0);
+    height: 0px;
+  }
+
+  .li-show-animation {
+    animation: showAnimation 200ms ease-in-out;
+  }
+
+  @keyframes showAnimation {
+    from {
+      transform: scale3d(0, 0, 0);
+      height: 0px;
+    }
+    to {
+      transform: scale3d(1, 1, 1);
+      height: 27px;
+    }
+  }
+
+}
+
+
+
+
+
+
+
+

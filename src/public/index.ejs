@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <main class="main">
+    <h1>Taskerino</h1>
+    <div class="todo-container">
+
+      <form class="form" data-js="form">
+        <input class="form__input" data-js="form__input" type="text" placeholder="Task...">
+        <button class="form__button">Submit</button>
+      </form>
+
+      <ul class="list list-not-complete" data-js="list-not-complete">
+
+        <% todos.forEach((todo) => { %>
+          <% if(todo.isComplete) return; %>
+          <li class="list__item li-show-animation" data-id="<%= todo.id %>">
+            <input type="text" value="<%= todo.task %>" data-js="list__input" readonly>
+            <button class="list__done" onclick="handleDone(this)">Done</button>
+            <button class="list__edit" onclick="handleEdit(this)">Edit</button>
+            <button class="list__delete" onclick="handleDelete(this)">Delete</button>
+          </li>
+        <% }); %>
+        
+      </ul>
+
+      <ul class="list list-complete" data-js="list-complete">
+
+        <% todos.forEach((todo) => { %>
+          <% if(!todo.isComplete) return; %>
+          <li class="list__item li-show-animation" data-id="<%= todo.id %>">
+            <input class="complete" type="text" value="<%= todo.task %>" data-js="list__input" readonly>
+            <button class="list__done" onclick="handleDone(this)">Undo</button>
+            <button class="list__delete" onclick="handleDelete(this)">Delete</button>
+          </li>
+        <% }); %>
+
+      </ul>
+
+      
+    </div>
+  </main>
+  <script src="js/utils.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
